@@ -1,6 +1,6 @@
 "use strict";
 
-const {CustomTypeInterface, registerDefinition} = require("..");
+const {CustomTypeInterface, registerDefinition} = require("../../../src/main");
 
 const UserTestModelSettings = {
     immutable: false, // When activated, you will not be able to change the instance while it exists. irreversible
