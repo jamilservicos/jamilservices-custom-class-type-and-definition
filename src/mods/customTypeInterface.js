@@ -6,14 +6,17 @@ const {populateProperties} = require("./populateProperties");
 
 /**
  * @class CustomTypeInterface
+ * @description Represents a customizable type interface for creating and handling custom object types.
+ * This class includes several private methods and properties for managing custom type instances.
  */
 class CustomTypeInterface {
     /**
-     * @constructor
+     * Constructs an instance of the CustomTypeInterface.
      */
     constructor() {
         /**
          * @private
+         * @description Custom type of the object, typically the name of the class.
          */
         Object.defineProperty(this, 'customType', {
             enumerable: false,
@@ -23,6 +26,7 @@ class CustomTypeInterface {
         });
         /**
          * @private
+         * @description Name of the instance type, typically the name of the class.
          */
         Object.defineProperty(this, 'instanceOf', {
             enumerable: false,
@@ -32,6 +36,9 @@ class CustomTypeInterface {
         });
         /**
          * @private
+         * @name interface
+         * @type {Object}
+         * @description Interface definitions for the custom type.
          */
         Object.defineProperty(this, 'interface', {
             enumerable: false,
@@ -41,6 +48,9 @@ class CustomTypeInterface {
         });
         /**
          * @private
+         * @name required
+         * @type {Array.<string>}
+         * @description List of required property names for the custom type instance.
          */
         Object.defineProperty(this, 'required', {
             enumerable: false,
@@ -49,15 +59,16 @@ class CustomTypeInterface {
         });
         /**
          * @private
+         * @description Populates the instance properties based on provided data.
          */
         Object.defineProperty(this, 'populate', {
             enumerable: false,
             configurable: false,
             /**
-             * @name populate
              * @function
-             * @param {Object} data
-             * @returns {boolean}
+             * @name populate
+             * @param {Object} data - The data to populate the instance properties with.
+             * @returns {boolean} Returns true if properties are successfully populated, false otherwise.
              */
             value: (data) => {
                 return populateProperties(this, data);
@@ -65,15 +76,16 @@ class CustomTypeInterface {
         });
         /**
          * @private
+         * @description Checks if the instance is of a specified custom type.
          */
         Object.defineProperty(this, 'typeOf', {
             enumerable: false,
             configurable: false,
             /**
-             * @name typeOf
              * @function
-             * @param {string} customTypeName
-             * @returns {boolean}
+             * @name typeOf
+             * @param {string} customTypeName - The name of the custom type to check against.
+             * @returns {boolean} Returns true if the instance matches the custom type, false otherwise.
              */
             value: (customTypeName) => {
                 try {
@@ -86,14 +98,15 @@ class CustomTypeInterface {
         });
         /**
          * @private
+         * @description Converts the instance to a plain object.
          */
         Object.defineProperty(this, 'toObject', {
             enumerable: false,
             configurable: false,
             /**
-             * @name toObject
              * @function
-             * @returns {Object}
+             * @name toObject
+             * @returns {Object} Returns a plain object representation of the instance.
              */
             value: () => {
                 return {...this};
@@ -101,25 +114,31 @@ class CustomTypeInterface {
         });
         /**
          * @private
+         * @description Converts the instance to a JSON string.
          */
         Object.defineProperty(this, 'toJson', {
             enumerable: false,
             configurable: false,
             /**
+             * @function
              * @name toJson
-             * @returns {string}
+             * @returns {string} Returns a JSON string representation of the instance.
              */
             value: () => {
                 return JSON.stringify(this.toObject());
             }
         });
-        //
+        /**
+         * @private
+         * @description Overrides the default toString method to return a JSON string representation of the instance.
+         */
         Object.defineProperty(this, 'toString', {
             enumerable: false,
             configurable: false,
             /**
+             * @function
              * @name toString
-             * @returns {string}
+             * @returns {string} Returns a JSON string representation of the instance.
              */
             value: () => {
                 return this.toJson();
@@ -128,14 +147,16 @@ class CustomTypeInterface {
         //
         /**
          * @private
+         * @description Makes the instance immutable (frozen).
          */
         Object.defineProperty(this, 'immutable', {
             enumerable: false,
             configurable: false,
             /**
-             * @name immutable
              * @function
-             * @param instance
+             * @name immutable             *
+             * @param {Object} instance - The instance to be made immutable.
+             * @returns {Boolean|undefined}
              */
             value: (instance) => {
                 if(instance) {
@@ -148,13 +169,15 @@ class CustomTypeInterface {
         });
         /**
          * @private
+         * @description Sets a field in the instance based on the defined interface.
          */
         Object.defineProperty(this, 'setField', {
             enumerable: false,
             configurable: false,
             /**
+             * @function
              * @name setField
-             * @param {Object} data
+             * @param {Object} data - Contains the name and value of the field to be set.
              */
             value: (data) => {
                 try {
@@ -172,11 +195,12 @@ class CustomTypeInterface {
             }
         });
     }
-
     /**
+     * @function
      * @name getField
-     * @param {string} key
-     * @returns {undefined|*}
+     * @description Retrieves a field value from the instance.
+     * @param {string} key - The key of the field to retrieve.
+     * @returns {*} The value of the field, or undefined if the field does not exist.
      */
     getField(key) {
         if (key && this[key]) return this[key];
@@ -185,6 +209,7 @@ class CustomTypeInterface {
 }
 /**
  * @private
+ * @description Defines a custom behavior for the instanceof operator for this class.
  */
 Object.defineProperty(CustomTypeInterface, Symbol.hasInstance, {
     /**
@@ -196,33 +221,38 @@ Object.defineProperty(CustomTypeInterface, Symbol.hasInstance, {
 /**
  * @name CustomTypeInterfaceDefinition
  * @type {{resolveDefinition: Object, registerDefinition: Function}}
+ * @description Manages definitions of custom type interfaces.
  */
 const CustomTypeInterfaceDefinition = {
     /**
-     * @name resolveDefinition
-     * @private
+     * @protected
+     * @name resolveTypeDefinition
      * @type {Object}
+     * @description Stores resolved definitions for custom types.
      */
-    resolveDefinition: {},
+    resolveTypeDefinition: {},
     /**
-     * @name registerDefinition
-     * @type {Function}
-     * @param {Object} resolveDefinition
+     * @function
+     * @name registerTypeDefinition
+     * @description Registers a new custom type definition.
+     * @param {Object} resolveDefinition - The definition object of the custom type.
+     * @throws {Error} If a definition with the same name already exists.
      */
-    registerDefinition: (resolveDefinition) => {
+    registerTypeDefinition: (resolveDefinition) => {
         const {name} = resolveDefinition;
-        if(CustomTypeInterfaceDefinition.resolveDefinition[name]) {
+        if(CustomTypeInterfaceDefinition.resolveTypeDefinition[name]) {
             throw new Error("definition for class with the same name already exists");
-        } else CustomTypeInterfaceDefinition.resolveDefinition[name] = resolveDefinition;
+        } else CustomTypeInterfaceDefinition.resolveTypeDefinition[name] = resolveDefinition;
     }
 };
+// Register the CustomTypeInterface class.
 CustomTypeInterfaceDefinition.registerDefinition(CustomTypeInterface);
 /**
  * @private
- * @type {{registerDefinition: Function, CustomTypeInterfaceDefinition: Object, CustomTypeInterface: CustomTypeInterface}}
+ * @description Exports the CustomTypeInterface, its definitions, and the registerDefinition function.
  */
 exports = module.exports = {
     CustomTypeInterface,
-    CustomTypeInterfaceDefinition: CustomTypeInterfaceDefinition.resolveDefinition,
-    registerDefinition: CustomTypeInterfaceDefinition.registerDefinition
+    CustomTypeInterfaceDefinition: CustomTypeInterfaceDefinition.resolveTypeDefinition,
+    registerDefinition: CustomTypeInterfaceDefinition.registerTypeDefinition
 }

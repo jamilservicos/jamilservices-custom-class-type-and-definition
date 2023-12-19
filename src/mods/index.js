@@ -1,15 +1,40 @@
 "use strict";
 
 
-const {CustomTypeInterface,
-    CustomTypeInterfaceDefinition, registerDefinition} = require("./customTypeInterface");
+const {
+    CustomTypeInterface,
+    CustomTypeInterfaceDefinition,
+    registerDefinition
+} = require("./customTypeInterface");
+
+/**
+ * This module exports the CustomTypeInterface class, its associated definitions,
+ * and the registerDefinition function. These exports are primarily used for creating
+ * and managing custom type interfaces within your application.
+ *
+ * @module CustomTypeInterfaceModule
+ */
 
 /**
  * @private
- * @type {{registerDefinition: Function, CustomTypeInterfaceDefinition: Object, CustomTypeInterface: CustomTypeInterface|CustomTypeInterface}}
+ * @type {CustomTypeInterface}
+ * @description Exports the CustomTypeInterface class. This class is used for creating custom type
+ * instances with predefined properties and methods.
  */
-exports = module.exports = {
-    ...{CustomTypeInterface},
-    ...{CustomTypeInterfaceDefinition},
-    ...{registerDefinition}
-};
+exports = module.exports = {CustomTypeInterface};
+
+/**
+ * @private
+ * @type {Object}
+ * @description Exports the CustomTypeInterfaceDefinition object. This object stores and manages
+ * the definitions for custom type interfaces.
+ */
+exports = module.exports = {CustomTypeInterfaceDefinition};
+
+/**
+ * @private
+ * @type {Function}
+ * @description Exports the registerDefinition function. This function is used to register new
+ * custom type definitions to the CustomTypeInterfaceDefinition object.
+ */
+exports = module.exports = {registerDefinition};
