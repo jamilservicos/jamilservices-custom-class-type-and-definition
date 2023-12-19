@@ -1,0 +1,48 @@
+{
+  "name": "@jamilservices/custom-class-type-and-definition",
+  "version": "0.1.0",
+  "description": "create custom classes with methods to identify their constructor as a type, and with native methods to obtain json, object and immutability. In addition to having type validation for instance creation.",
+  "main": "src/main.js",
+  "private": true,
+  "homepage": "https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition.git#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition.git/issues"
+  },
+  "author": "Jamil Services <jamilservicos@gmail.com> (https://github.com/jamilservicos)",
+  "license": "MIT",
+  "engines": {
+    "node": "18.19.x"
+  },
+  "keywords": [
+    "custom",
+    "types",
+    "interface",
+    "custom-type",
+    "custom-interface",
+    "type-interface",
+    "custom-type-interface",
+    "jamilservicos",
+    "jamilservices",
+    "nodejs",
+    "javascript",
+    "class"
+  ],
+  "scripts": {
+    "docs": "jsdoc -c jsdoc.json",
+    "tests": "mocha --file './test/setup.js' './src/**/*.spec.js'",
+    "benchmark": "node benchmark.js"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "jsdoc": "^4.0.2",
+    "mocha": "^10.2.0"
+  }
+}
