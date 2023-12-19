@@ -1,6 +1,6 @@
 {
   "name": "@jamilservices/custom-class-type-and-definition",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "create custom classes with methods to identify their constructor as a type, and with native methods to obtain json, object and immutability. In addition to having type validation for instance creation.",
   "main": "src/main.js",
   "homepage": "https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition.git#readme",
