@@ -1,0 +1,33 @@
+name: Publish Package to npmjs
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 18.19.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.19.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@jamilservices'
+          cache: 'npm'
+          persist-credentials: false
+      - name: Install dependencies
+        run: npm install
+      - name: Publish to NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: github.repository == 'jamilservicos/jamilservices-custom-class-type-and-definition'
+  #    - run: npm run build --if-present
+  #    - run: npm test
