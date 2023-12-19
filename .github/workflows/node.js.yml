@@ -1,0 +1,42 @@
+name: Node.js Tests
+
+on:
+  push:
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 18.19.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.19.x'
+          cache: 'npm'
+          persist-credentials: false
+      - name: Install dependencies
+        run: npm install
+      - run: npm run tests
+
+  run-benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 18.19.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.19.x'
+          cache: 'npm'
+          persist-credentials: false
+      - name: Install dependencies
+        run: npm install
+      - name: Run Benchmark
+        run: npm run benchmark
+      - name: Upload Benchmark Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: benchmark-results
+          path: benchmark-results.txt
