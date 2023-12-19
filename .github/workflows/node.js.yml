@@ -1,10 +1,13 @@
 name: Node.js Tests
 
 on:
-  push:
-    branches: [ "dev" ]
-  pull_request:
-    branches: [ "dev" ]
+  workflow_dispatch:
+    branches:
+      - dev
+#  push:
+#    branches: [ "dev" ]
+#  pull_request:
+#    branches: [ "dev" ]
 
 jobs:
   build:
