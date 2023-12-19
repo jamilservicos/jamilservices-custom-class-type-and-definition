@@ -13,6 +13,7 @@
 [![forks - jamilservices-custom-class-type-and-definition](https://img.shields.io/github/forks/jamilservicos/jamilservices-custom-class-type-and-definition?style=social)](https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition)
 [![issues - jamilservices-custom-class-type-and-definition](https://img.shields.io/github/issues/jamilservicos/jamilservices-custom-class-type-and-definition)](https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition/issues)
 [![GitHub release](https://img.shields.io/github/release/jamilservicos/jamilservices-custom-class-type-and-definition?include_prereleases=&sort=semver)](https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition/releases/)
+[![Publish package to GitHub Packages](https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition/actions/workflows/github-publish.yml/badge.svg?event=registry_package)](https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition/actions/workflows/github-publish.yml)
 
 #
 #### Installation ways:
