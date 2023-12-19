@@ -4,36 +4,49 @@ const {instanceTypeOf} = require("./instanceTypeOf");
 const {validatesRequiredProperties} = require("./validatesRequiredProperties");
 
 /**
- * @name customTypeOf
+ * A custom type checking function.
+ *
+ * This function performs validation on an input data object by checking its instance properties,
+ * custom type name, and error enumeration logic. It relies on `instanceTypeOf` and
+ * `validatesRequiredProperties` functions to perform these validations. The function ensures
+ * that the instance has the required properties and matches the specified custom type name.
+ * If the validation fails, it triggers a custom type error.
+ *
  * @function
- * @param {Object} data
- * @returns {boolean}
+ * @name customTypeOf
+ * @param {Object} data - An object containing properties to be validated.
+ * @param {Object} data.instance - The instance of the object being validated.
+ * @param {string} data.customTypeName - The custom type name for the current instance.
+ * @param {Object} data.enumErrors - Function to retrieve an object for enumerating errors.
+ * @returns {boolean} Returns `true` if the validation passes or `false` if it fails.
  */
 const customTypeOf = (data) => {
     try {
-        /**
-         * @property {object|undefined} instance
-         * @property {string|undefined} customTypeName
-         * @property {object|undefined} enumErrors
-         */
         const {instance, customTypeName, enumErrors} = data;
+
         if (instance.required.length === 0) return true;
-        if ((instance && customTypeName && enumErrors) && (instanceTypeOf({instance, customTypeName}))) {
+
+        if ((instance && customTypeName && enumErrors) && instanceTypeOf({instance, customTypeName})) {
             const response = validatesRequiredProperties(instance, (r) => {
                 if ((typeof r === "object") && (r["res"])) {
                     return true;
-                } else enumErrors["CUSTOMTYPEERROR"](instance.customTypeName);
-                return false;
+                } else {
+                    enumErrors["CUSTOMTYPEERROR"](instance.customTypeName);
+                    return false;
+                }
             });
+
             if (response) return true;
-        } else enumErrors["CUSTOMTYPEERROR"](instance.customTypeName);
-    } catch {
-    }
+        } else {
+            enumErrors["CUSTOMTYPEERROR"](instance.customTypeName);
+        }
+    } catch {}
     return false;
 };
 /**
  * @private
- * @type {{customTypeOf: function(Object): boolean}}
+ * @description Exports the customTypeOf function.
+ *              This function is intended for internal use within the module or package.
  */
 exports = module.exports = {
     ...{customTypeOf}
