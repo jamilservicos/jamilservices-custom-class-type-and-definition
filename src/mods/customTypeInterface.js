@@ -207,46 +207,56 @@ class CustomTypeInterface {
         return undefined;
     }
 }
+
 /**
  * @private
- * @description Defines a custom behavior for the instanceof operator for this class.
+ * @ignore
  */
 Object.defineProperty(CustomTypeInterface, Symbol.hasInstance, {
-    /**
-     * @private
-     * @returns {function(*): boolean}
-     */
     get: () => (instance) => instance.constructor.name === instance.instanceOf
 });
 /**
- * @name CustomTypeInterfaceDefinition
- * @type {{resolveDefinition: Object, registerDefinition: Function}}
+ * This object is responsible for storing and managing custom type definitions. It provides
+ * a mechanism to register new type definitions and ensure uniqueness of type names.
+ *
+ * @typedef {Object} CustomTypeInterfaceDefinition
  * @description Manages definitions of custom type interfaces.
  */
 const CustomTypeInterfaceDefinition = {
     /**
+     * Stores resolved definitions for custom types.
+     *
+     * This object acts as a registry for custom type definitions. Each key represents the name of a custom type,
+     * and the associated value is the definition of that type.
+     *
      * @protected
-     * @name resolveTypeDefinition
-     * @type {Object}
+     * @type {Object.<string, any>}
      * @description Stores resolved definitions for custom types.
      */
     resolveTypeDefinition: {},
     /**
+     * Registers a new custom type definition.
+     *
+     * This function adds a new type definition to the `resolveTypeDefinition` registry. If a type with the same
+     * name already exists, it throws an error to prevent duplicate definitions.
+     *
      * @function
      * @name registerTypeDefinition
-     * @description Registers a new custom type definition.
-     * @param {Object} resolveDefinition - The definition object of the custom type.
+     * @param {Object} resolveDefinition - Object containing the definition to register.
+     * @param {string} resolveDefinition.name - Name of the custom type.
      * @throws {Error} If a definition with the same name already exists.
      */
     registerTypeDefinition: (resolveDefinition) => {
         const {name} = resolveDefinition;
         if(CustomTypeInterfaceDefinition.resolveTypeDefinition[name]) {
+            //
             throw new Error("definition for class with the same name already exists");
         } else CustomTypeInterfaceDefinition.resolveTypeDefinition[name] = resolveDefinition;
     }
 };
 // Register the CustomTypeInterface class.
-CustomTypeInterfaceDefinition.registerDefinition(CustomTypeInterface);
+CustomTypeInterfaceDefinition.registerTypeDefinition(CustomTypeInterface);
+
 /**
  * @private
  * @description Exports the CustomTypeInterface, its definitions, and the registerDefinition function.
