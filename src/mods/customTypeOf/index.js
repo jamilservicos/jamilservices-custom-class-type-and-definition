@@ -14,6 +14,7 @@ const {validatesRequiredProperties} = require("./validatesRequiredProperties");
  *
  * @function
  * @name customTypeOf
+ * @memberof module:CustomTypeInterfaceModule
  * @param {Object} data - An object containing properties to be validated.
  * @param {Object} data.instance - The instance of the object being validated.
  * @param {string} data.customTypeName - The custom type name for the current instance.
@@ -44,9 +45,10 @@ const customTypeOf = (data) => {
     return false;
 };
 /**
+ *
+ * Exports the customTypeOf function. This function is intended for internal use within the module or package.
+ *
  * @private
- * @description Exports the customTypeOf function.
- *              This function is intended for internal use within the module or package.
  */
 exports = module.exports = {
     ...{customTypeOf}

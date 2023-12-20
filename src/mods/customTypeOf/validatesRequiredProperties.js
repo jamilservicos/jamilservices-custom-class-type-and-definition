@@ -9,7 +9,8 @@
  * manages error scenarios such as missing callback or properties.
  *
  * @function
- * @name  validatesRequiredProperties
+ * @memberof module:CustomTypeInterfaceModule
+ * @name validatesRequiredProperties
  * @param {Object} instance - The object instance to be validated.
  * @param {Array.<string>} instance.required - An array of property names that are required in the instance object.
  * @param {Function} done - Callback function to which the result will be passed as an argument.
@@ -43,9 +44,10 @@ const validatesRequiredProperties = (instance, done) => {
     }
 }
 /**
+ *
+ * Exports the validatesRequiredProperties function. This function is intended for internal use within the module or package.
+ *
  * @private
- * @description Exports the validatesRequiredProperties function.
- *              This function is intended for internal use within the module or package.
  */
 exports = module.exports = {
     ...{validatesRequiredProperties}

@@ -9,6 +9,7 @@
  * and it gracefully handles errors such as accessing the constructor property of a null or undefined instance.
  *
  * @function
+ * @memberof module:CustomTypeInterfaceModule
  * @name  instanceTypeOf
  * @param {Object} data - An object containing the instance and the custom type name.
  * @param {Object} data.instance - The instance object to be checked.
@@ -30,9 +31,10 @@ const instanceTypeOf = (data) => {
     }
 };
 /**
+ *
+ * Exports the instanceTypeOf function. This function is meant for internal use within the module or package.
+ *
  * @private
- * @description Exports the instanceTypeOf function.
- *              This function is meant for internal use within the module or package.
  */
 exports = module.exports = {
     ...{instanceTypeOf}
