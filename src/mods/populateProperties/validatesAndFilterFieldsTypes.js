@@ -8,6 +8,7 @@ const {filterItems} = require("./filterItems");
  * This helper function is used within `validatesAndFilterFieldsTypes` to determine if any
  * of the items in the provided array contains an error field, which indicates a validation error.
  * @private
+ * @memberof module:CustomTypeInterfaceModule
  * @type {Function}
  * @name checkRequiredFieldError
  * @param {Array} arrayItems - The array of items to be checked for errors.
@@ -29,6 +30,7 @@ const checkRequiredFieldError = (arrayItems) => {
  * If any required fields are missing or if any errors occur during the process, the function returns false.
  *
  * @function
+ * @memberof module:CustomTypeInterfaceModule
  * @name validatesAndFilterFieldsTypes
  * @param {Object} instance - The instance whose fields are to be validated and set.
  * @param {Object} instance.interface - The interface model of the instance for validation.
@@ -56,9 +58,10 @@ const validatesAndFilterFieldsTypes = (instance, data) => {
     }
 };
 /**
+ *
+ * Exports the validatesAndFilterFieldsTypes function. This function is intended for internal use within the module or package.
+ *
  * @private
- * @description Exports the validatesAndFilterFieldsTypes function.
- *              This function is intended for internal use within the module or package.
  */
 exports = module.exports = {
     ...{validatesAndFilterFieldsTypes}

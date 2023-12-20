@@ -12,6 +12,7 @@ const {validations} = require("./validations");
  * The function handles potential exceptions during the validation process and returns an empty array in case of an error.
  *
  * @function
+ * @memberof module:CustomTypeInterfaceModule
  * @name filterItems
  * @param {Object} obj - The object containing fields, data, and model for validation.
  * @param {Array.<string>} obj.fields - Array of field names to be validated.
@@ -51,9 +52,10 @@ const filterItems = (obj, done) => {
     }
 };
 /**
+ *
+ * Exports the filterItems function. This function is intended for internal use within the module or package.
+ *
  * @private
- * @description Exports the filterItems function.
- *              This function is intended for internal use within the module or package.
  */
 exports = module.exports = {
     ...{filterItems}

@@ -10,6 +10,7 @@ const {validatesAndFilterFieldsTypes} = require("./validatesAndFilterFieldsTypes
  * function, making it specific to the task of populating instance properties.
  *
  * @function
+ * @memberof module:CustomTypeInterfaceModule
  * @name populateProperties
  * @param {Object} instance - The instance whose properties are to be populated.
  * @param {Object} data - The data object containing the fields and values to be set on the instance.
@@ -19,10 +20,12 @@ const populateProperties = (instance, data) => {
     return validatesAndFilterFieldsTypes(instance, data);
 };
 /**
-* @private
-* @description Exports the populateProperties function.
-*              This function is intended for internal use within the module or package.
-*/
+ *
+ * Exports the populateProperties function.
+ * This function is intended for internal use within the module or package.
+ *
+ * @private
+ */
 exports = module.exports = {
     ...{populateProperties}
 }

@@ -9,6 +9,7 @@
  * If the value doesn't match the specified type or if other validation errors occur, the function returns undefined.
  *
  * @function
+ * @memberof module:CustomTypeInterfaceModule
  * @name validations
  * @param {Object} schema - The schema object used for validation.
  * @param {string} schema.item - The name of the item being validated.
@@ -34,9 +35,10 @@ const validations = (schema) => {
     return undefined;
 };
 /**
+ *
+ * Exports the validations function. This function is intended for internal use within the module or package.
+ *
  * @private
- * @description Exports the validations function.
- *              This function is intended for internal use within the module or package.
  */
 exports = module.exports = {
     ...{validations}
