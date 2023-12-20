@@ -34,6 +34,7 @@
     "docs": "jsdoc -c jsdoc.json",
     "example:userModel": "node examples/use_cases/userModel/userInstance.js",
     "tests": "mocha --file './test/setup.js' './src/**/*.spec.js'",
+    "tests-xunit": "mocha --file './test/setup.js' './src/**/*.spec.js' --reporter xunit --reporter-options output=xunit.xml",
     "benchmark": "node benchmark.js"
   },
   "directories": {

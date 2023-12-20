@@ -1,4 +1,4 @@
-name: Manual Publish package to GitHub Packages (jamilservicos)
+name: Manual Publish package to GitHub Packages (jamilservices)
 
 on:
   workflow_dispatch:
@@ -22,6 +22,7 @@ jobs:
       with:
         node-version: '18.19.x'
         registry-url: 'https://npm.pkg.github.com'
+        scope: '@jamilservices'
         cache: 'npm'
         persist-credentials: false
     - name: Install dependencies
