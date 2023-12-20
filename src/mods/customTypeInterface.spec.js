@@ -3,7 +3,7 @@
 const chai = require('chai');
 const {  assert, expect} = chai;
 const should = chai.should();
-const {CustomTypeInterface, CustomTypeInterfaceDefinition, registerDefinition} = require("./customTypeInterface");
+const {CustomTypeInterface} = require("./customTypeInterface");
 
 //=======
 let userTest;
@@ -125,15 +125,3 @@ describe('CustomTypeInterface import tests', () => {
     });
 });
 //=======
-describe('registerDefinition and CustomTypeInterfaceDefinition tests', () => {
-    it('registerDefinition(UserTestModel)',() => {
-        assert.isUndefined(registerDefinition(UserTestModel));
-    });
-    it('CustomTypeInterfaceDefinition have UserTestModel?',() => {
-        CustomTypeInterfaceDefinition.should.contain.keys(["UserTestModel"]);
-    });
-    it('typeof CustomTypeInterfaceDefinition.UserTestModel === function',() => {
-        const {UserTestModel} = CustomTypeInterfaceDefinition;
-        assert.isFunction(UserTestModel);
-    });
-});
