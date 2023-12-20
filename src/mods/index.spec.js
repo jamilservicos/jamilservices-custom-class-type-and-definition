@@ -21,13 +21,13 @@ describe('indexModsTest imports', () => {
     });
 
     it('typeof indexModsTest.CustomTypeInterface === function', () => {
-        assert.isFunction(indexModsTest.CustomTypeInterface);
+        assert.isFunction(indexModsTest["CustomTypeInterface"]);
     });
     it('typeof indexModsTest.CustomTypeInterfaceDefinition === object', () => {
-        assert.isObject(indexModsTest.CustomTypeInterfaceDefinition);
+        assert.isObject(indexModsTest["CustomTypeInterfaceDefinition"]);
     });
     it('typeof indexModsTest.registerDefinition === function', () => {
-        assert.isFunction(indexModsTest.registerDefinition);
+        assert.isFunction(indexModsTest["registerDefinition"]);
     });
 });
 

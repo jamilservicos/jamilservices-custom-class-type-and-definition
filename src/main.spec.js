@@ -21,13 +21,13 @@ describe('mainTest imports', () => {
     });
 
     it('typeof mainTest.CustomTypeInterface === function', () => {
-        assert.isFunction(mainTest.CustomTypeInterface);
+        assert.isFunction(mainTest["CustomTypeInterface"]);
     });
     it('typeof mainTest.CustomTypeInterfaceDefinition === object', () => {
-        assert.isObject(mainTest.CustomTypeInterfaceDefinition);
+        assert.isObject(mainTest["CustomTypeInterfaceDefinition"]);
     });
     it('typeof mainTest.registerDefinition === function', () => {
-        assert.isFunction(mainTest.registerDefinition);
+        assert.isFunction(mainTest["registerDefinition"]);
     });
 });
 

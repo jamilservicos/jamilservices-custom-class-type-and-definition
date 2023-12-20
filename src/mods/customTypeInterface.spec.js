@@ -1,8 +1,7 @@
 "use strict";
 
 const chai = require('chai');
-const {  assert, expect} = chai;
-const should = chai.should();
+const {  assert} = chai;
 const {CustomTypeInterface} = require("./customTypeInterface");
 
 //=======

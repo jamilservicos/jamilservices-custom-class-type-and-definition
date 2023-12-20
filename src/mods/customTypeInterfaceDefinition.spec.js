@@ -1,8 +1,7 @@
 "use strict";
 
 const chai = require('chai');
-const {  assert, expect} = chai;
-const should = chai.should();
+const {  assert} = chai;
 const {CustomTypeInterfaceDefinition, registerDefinition} = require("./customTypeInterfaceDefinition");
 const {CustomTypeInterface} = require("./customTypeInterface");
 
@@ -34,12 +33,6 @@ class UserTestModel extends CustomTypeInterface {
     }
 }
 
-const userTest = new UserTestModel({
-    name: "User Test",
-    stringTest: "stringTest",
-    numberTest: 123,
-    objectTest: {}
-});
 registerDefinition(UserTestModel);
 describe('registerDefinition and CustomTypeInterfaceDefinition tests', () => {
     it('CustomTypeInterfaceDefinition have UserTestModel?',() => {

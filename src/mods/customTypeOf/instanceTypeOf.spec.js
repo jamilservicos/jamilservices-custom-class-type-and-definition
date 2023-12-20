@@ -1,6 +1,7 @@
 "use strict";
+
 const chai = require('chai');
-const { assert, expect } = chai;
+const { assert} = chai;
 const { instanceTypeOf } = require("./instanceTypeOf");
 
 describe('instanceTypeOf and modulo imports', () => {
