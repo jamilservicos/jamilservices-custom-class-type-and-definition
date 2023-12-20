@@ -17,8 +17,8 @@ Welcome to the examples and use cases directory of [`@jamilservices/custom-class
 Before running the examples, ensure you have Node.js installed on your system. Clone the repository and install the dependencies:   
 
 ```bash
-git clone [Your Repository URL]
-cd [Your Repository Path]
+git clone https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition
+cd jamilservices-custom-class-type-and-definition
 npm install
 ```   
 
