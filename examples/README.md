@@ -1,6 +1,6 @@
 # <span id="examples-and-use-cases">Examples and Use Cases</span>   
 #
-Welcome to the examples and use cases directory of `@jamilservices/custom-class-type-and-definition`. This directory contains a collection of practical examples demonstrating how to use various aspects of our project. Each example is designed to provide a clear understanding of specific functionalities and use cases.
+Welcome to the examples and use cases directory of [`@jamilservices/custom-class-type-and-definition`](https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition). This directory contains a collection of practical examples demonstrating how to use various aspects of our project. Each example is designed to provide a clear understanding of specific functionalities and use cases.
    
 #
 ## Table of Contents
