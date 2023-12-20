@@ -126,7 +126,7 @@ console.log("user.interface", user.interface);
  console.log("user instanceof UserTestModel from userInstanceDefinition", user instanceof UserTestModel);
 ```  
 #
-- [See the example complete codes in the `examples` directory](https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition/blob/main/examples/README.md)
+- [See the example complete codes in the `examples` directory](https://github.com/jamilservicos/jamilservices-custom-class-type-and-definition/blob/main/examples)
 #
 ### License
 Released under [MIT](/LICENSE) by [@jamilservicos](https://github.com/jamilservicos).
