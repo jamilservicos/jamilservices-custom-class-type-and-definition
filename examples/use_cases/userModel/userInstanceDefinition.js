@@ -1,6 +1,6 @@
 "use strict";
 
-const {UserTestModel} = require("../../../src/main").CustomTypeInterfaceDefinition;
+const {CustomTypeInterfaceDefinition: {UserTestModel}} = require("../../..");
 const testUserCustomTypeDefinition = (user) => {
     try {
         console.log("user instanceof UserTestModel from userInstanceDefinition", user instanceof UserTestModel);
